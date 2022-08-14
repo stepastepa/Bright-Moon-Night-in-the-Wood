@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Moon Night in the Wood</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <!-- Best view: 900p> -->
+
+    <audio loop class="day-audio" src="media/daylight.mp3"></audio>
+    <audio loop class="party-audio" src="media/night_melody2.mp3"></audio>
+    <audio class="medved-audio" src="media/medved.mp3"></audio>
+    <audio class="sheep-audio" src="media/sheep5.mp3"></audio>
+    <audio class="mouse-audio" src="media/mouse2.mp3"></audio>
+    <audio class="vovk-audio" src="media/vovki.mp3"></audio>
+
+    <div class="toggle-circle">
+      <!-- <div class="toggle-icon close"></div> -->
+    </div>
+
+    <div id="start-menu">
+      <div id="menu-background">
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree-thin"></div>
+        <div class="tree-thin"></div>
+        <div class="tree-thin"></div>
+        <div class="tree-thin"></div>
+        <div class="tree-thin"></div>
+        <div class="tree-thin"></div>
+        <div class="branches first"></div>
+        <div class="branches second"></div>
+        <div class="branches third"></div>
+        <div class="branches fourth"></div>
+        <div class="branches fifth"></div>
+        <div class="branches sixth"></div>
+        <div class="branches seventh"></div>
+        <div class="sky"></div>
+      </div>
+
+      <div class="project-title">
+        <h1>Bright Moon Night<br>in the Wood</h1>
+        <span>HTML/CSS + JS</span>
+      </div>
+
+      <ul class="music-box">
+        <li class="natural">Natural</li>
+        <li class="spooky locked">Spooky</li>
+        <li class="techno locked">Techno</li>
+      </ul>
+
+      <div class="hints-start">
+        <span>Locked Music</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="166.298 94.475 159.47 272.563" class="pointer-start">
+          <path style="stroke: #111; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2px; stroke-dasharray: 7;" d="M 313.858 320.032 C 179.906 346.562 142.412 228.429 214.43 221.488 C 276.298 215.525 248.776 272.783 226.723 260.862 C 193.058 242.665 240.222 215.05 248.459 212.85 C 293.239 200.892 305.683 180.154 305.057 136.469" />
+          <path style="stroke: #111; stroke-linecap: round; stroke-linejoin: round; fill: none; stroke-width: 3px;" d="M 294.086 141.687 L 304.176 115.626 L 315.8 140.09" />
+        </svg>
+      </div>
+
+
+      <!-- <div class="cross-icon"></div> -->
+
+      <!-- <div class="sheep-scene">
+        <div id="sheep-daylight">
+          <div class="sheep-head"></div>
+          <div class="sheep-body"></div>
+          <div class="sheep-leg-one"></div>
+          <div class="sheep-leg-two"></div>
+          <div class="sheep-leg-three"></div>
+          <div class="sheep-leg-four"></div>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- <div class="toggle-icon open"></div> -->
+
+    <div id="background">
+      <div class="tree"></div>
+      <div class="tree"></div>
+      <div class="tree"></div>
+      <div class="tree"></div>
+      <div class="tree"></div>
+      <div class="tree-thin"></div>
+      <div class="tree-thin"></div>
+      <div class="tree-thin"></div>
+      <div class="tree-thin"></div>
+      <div class="tree-thin"></div>
+      <div class="tree-thin"></div>
+      <div class="branches first"></div>
+      <div class="branches second"></div>
+      <div class="branches third"></div>
+      <div class="branches fourth"></div>
+      <div class="branches fifth"></div>
+      <div class="branches sixth"></div>
+      <div class="branches seventh"></div>
+      <div class="moon"></div>
+      <div id="moon-area"></div>
+      <div class="sky"></div>
+      <div class="edges-fog"></div>
+    </div>
+    <div class="edges-plane-left"></div>
+    <div class="edges-plane-right"></div>
+
+    <div id="game">
+
+      <div id="vovk-zombie">
+        <div class="soundAnim hide">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="vovk-body">
+          <div class='vovk-head'>
+            <div class='vovk-eyes'></div>
+          </div>
+          <div class='vovk-ear'></div>
+          <div class='vovk-ear-back'></div>
+        </div>
+        <div class="vovk-leg one"></div>
+        <div class="vovk-leg two"></div>
+        <div class="vovk-leg three"></div>
+        <div class="vovk-leg four"></div>
+      </div>
+      <div id="vovk-zombie-area"></div>
+
+      <div id="zombie-sheep" class="flip">
+        <div class="soundAnim hide">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div id="zombie-sheep-area"></div>
+        <div class='head'>
+          <div class='eyes'></div>
+        </div>
+        <div class='ear'></div>
+        <div class='ear-back'></div>
+        <div class='body'></div>
+        <div class='leg one'></div>
+        <div class='leg two'></div>
+        <div class='leg three'></div>
+        <div class='leg four'></div>
+        <div class='shadow'></div>
+      </div>
+
+      <div id="medved-zombie">
+        <div class="soundAnim hide">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div id="medved-zombie-area"></div>
+        <div class="medved-body"></div>
+        <div class="medved-head">
+          <div class="medved-eyes"></div>
+          <div class='medved-ear-right'></div>
+          <div class="medved-ear-left"></div>
+          <div class="medved-nose"></div>
+        </div>
+        <div class="medved-leg-one"></div>
+        <div class="medved-leg-two"></div>
+        <div class="medved-leg-three"></div>
+        <div class="medved-leg-four"></div>
+        <div class='medved-shadow'></div>
+      </div>
+
+      <div id="mouse-zombie">
+        <div class="soundAnim hide">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div id="mouse-zombie-area"></div>
+        <div class="mouse-body">
+          <div class="mouse-tail"></div>
+        </div>
+        <div class="mouse-head">
+          <div class="mouse-eyes"></div>
+          <div class="mouse-ear-right"></div>
+          <div class="mouse-ear-left"></div>
+          <div class="mouse-nose"></div>
+        </div>
+        <div class="mouse-leg-one"></div>
+        <div class="mouse-leg-two"></div>
+        <div class="mouse-leg-three"></div>
+        <div class="mouse-leg-four"></div>
+        <div class='mouse-shadow'></div>
+      </div>
+
+      <div class="hints">
+        <span>"Б-р-р-р"</span>
+        <span>"Б-е-е-е"</span>
+        <span>"Ми-ми-ми"</span>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="166.298 94.475 159.47 272.563" class="pointer-one">
+          <path style="stroke: rgb(255, 255, 255); fill: none; stroke-dasharray: 7px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2px;" d="M 289.709 325.416 C 160.672 309.001 225.076 208.774 257.044 239.184 C 276.543 257.734 242.151 278.939 224.989 265.76 C 182.229 232.924 202.403 167.786 256.623 141.199" />
+          <path style="stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3px; fill: none;" d="M 248.358 133.821 L 274.248 131.827 L 258.64 151.434" />
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="166.298 94.475 159.47 272.563" class="pointer-two">
+          <path style="stroke: rgb(255, 255, 255); fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2px; stroke-dasharray: 7;" d="M 313.858 320.032 C 101.74 338.08 193.332 183.962 257.914 134.039" />
+          <path style="stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; fill: none; stroke-width: 3px;" d="M 248.394 126.959 L 273.383 119.197 L 264.088 142.658" />
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="166.298 94.475 159.47 272.563" class="pointer-three">
+          <path style="stroke: rgb(255, 255, 255); fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2px; stroke-dasharray: 7;" d="M 313.858 320.032 C 179.906 346.562 142.412 228.429 214.43 221.488 C 276.298 215.525 248.776 272.783 226.723 260.862 C 193.058 242.665 240.222 215.05 248.459 212.85 C 293.239 200.892 305.683 180.154 305.057 136.469" />
+          <path style="stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; fill: none; stroke-width: 3px;" d="M 294.086 141.687 L 304.176 115.626 L 315.8 140.09" />
+        </svg>
+
+      </div>
+      <p class="how-to-play">Click the Animal or use your Keyboard Arrows to play Audio sounds. Click the Moon to turn Music Off.</p>
+
+    </div>
+    <script src="script.js"></script>
+  </body>
+
+</html>

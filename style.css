@@ -1,0 +1,1580 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+* {
+  --smallText: 14px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none;
+}
+
+body {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.flip {
+  transform: scale(-1, 1);
+}
+
+#zombie-sheep {
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  margin-top: -70px;
+  z-index: 0;
+}
+
+#zombie-sheep .soundAnim.show {
+  position: absolute;
+  opacity: 1;
+  transform-origin: top;
+  transform: rotate(180deg) translateX(50%);
+  margin-top: -28px;
+  margin-left: 69px;
+  
+  opacity: 1;
+}
+#zombie-sheep .soundAnim.hide {
+  opacity: 0;
+}
+
+/* ///////////////////////////////// */
+/* Sound Animation Effect icon lines */
+.soundAnim div {
+  position: absolute;
+  width: 7px;
+  height: 40px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 20px white;
+}
+.soundAnim div:nth-child(1) {
+  left: -15px;
+  transform-origin: top;
+  transform: rotate(15deg);
+}
+.soundAnim div:nth-child(2) {
+  left: 0px;
+}
+.soundAnim div:nth-child(3) {
+  left: 15px;
+  transform-origin: top;
+  transform: rotate(-15deg);
+}
+/* ///////////////////////////////// */
+
+#zombie-sheep.flip {
+  transform: scale(-1, 1);
+  left: 46.7%;
+}
+
+#zombie-sheep-area {
+  position: absolute;
+  width: 170px;
+  height: 100px;
+  background: #ccc;
+  top: -10px;
+  left: -75px;
+  border-radius: 30px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 9999999;
+}
+
+.head {
+  position: absolute;
+  display: block;
+  background-color: #111;
+  border-radius: 15px;
+  width: 50px;
+  height: 30px;
+  margin-top: 30px;
+  margin-left: 47px;
+
+  z-index: 999;
+  animation: walk-cycle 0.5s ease infinite;
+  /*----------*/
+}
+
+.ear {
+  position: absolute;
+  display: block;
+  background-color: #111;
+  border-radius: 7px;
+  width: 14px;
+  height: 35px;
+  margin-top: 40px;
+  margin-left: 47px;
+  z-index: 998;
+
+  animation: walk-cycle 0.5s ease infinite;
+  /*----------*/
+}
+
+.ear-back {
+  position: absolute;
+  display: block;
+  background-color: #222;
+  border-radius: 7px;
+  width: 14px;
+  height: 35px;
+  margin-top: 40px;
+  margin-left: 66px;
+  z-index: -999;
+
+  animation: walk-cycle 0.5s ease infinite;
+  /*----------*/
+}
+
+.eyes {
+  position: absolute;
+  display: block;
+  background-color: #ff2a00;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-top: 10px;
+  margin-left: 14px;
+  z-index: 9999;
+  animation: blink 2s ease infinite;
+  /*----------*/
+}
+
+.eyes::after {
+  position: absolute;
+  display: block;
+  content: '';
+  background-color: #ff2a00;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: 25px;
+  z-index: 9999;
+  animation: blink 2s ease infinite;
+  /*----------*/
+}
+
+.body {
+  display: block;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50% 50%;
+  box-shadow: -40px 5px 0 0 rgba(255, 255, 255, 1),
+    -75px 15px 0 0 rgba(255, 255, 255, 1),
+    35px 10px 0 0 rgba(255, 255, 255, 1),
+    -55px 35px 0 0 rgba(255, 255, 255, 1),
+    -20px 40px 0 0 rgba(255, 255, 255, 1),
+    20px 35px 0 0 rgba(255, 255, 255, 1);
+
+  animation: walk-cycle 0.5s ease infinite;
+  /*----------*/
+}
+
+.leg {
+  position: absolute;
+  display: block;
+  background-color: #111;
+  border-radius: 5px;
+  width: 10px;
+  height: 50px;
+  margin-top: 15px;
+}
+
+.one {
+  z-index: 1;
+  margin-left: -38px;
+  animation: stepOne 1s ease infinite;
+  /*----------*/
+}
+
+.two {
+  z-index: -1;
+  margin-left: -20px;
+  background-color: #191919;
+  animation: stepTwo 1s ease infinite;
+  /*----------*/
+}
+
+.three {
+  z-index: 1;
+  margin-left: 10px;
+  animation: stepOne 1s ease infinite;
+  /*----------*/
+}
+
+.four {
+  z-index: -1;
+  margin-left: 28px;
+  background-color: #191919;
+  animation: stepTwo 1s ease infinite;
+  /*----------*/
+}
+
+.shadow {
+  position: absolute;
+  display: block;
+  background-color: #111;
+  border-radius: 50%;
+  width: 150px;
+  height: 20px;
+  margin-top: 55px;
+  margin-left: -70px;
+  opacity: 0.35;
+  z-index: -99;
+  filter: blur(6px);
+  transform: scale(1.15, 0.7);
+
+  animation: shadow-animation 0.5s ease infinite;
+  /*----------*/
+}
+
+@keyframes walk-cycle {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes blink {
+  0% {
+    transform: scaleY(1);
+  }
+
+  90% {
+    transform: scaleY(1);
+  }
+
+  95% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes stepOne {
+  0% {
+    height: 50px;
+    margin-top: 15px;
+    transform: translateY(0px);
+  }
+
+  25% {
+    height: 50px;
+    margin-top: 15px;
+    transform: translateY(-12px);
+  }
+
+  50% {
+    height: 50px;
+    margin-top: 15px;
+    transform: translateY(0px);
+  }
+
+  75% {
+    height: 62px;
+    margin-top: 3px;
+  }
+
+  100% {
+    height: 50px;
+    margin-top: 15px;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes stepTwo {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes shadow-animation {
+  0% {
+    transform: scale(1.25, 0.7);
+  }
+
+  50% {
+    transform: scale(1.15, 0.6);
+  }
+
+  100% {
+    transform: scale(1.25, 0.7);
+  }
+}
+
+
+/*//////////////*/
+/*//// vovk ////*/
+/*//////////////*/
+#vovk-zombie {
+  position: fixed;
+  top: 65%;
+  left: 100px;
+  margin-top: -70px;
+  z-index: -10;
+  opacity: 0.7;
+}
+#vovk-zombie .soundAnim.show {
+  position: absolute;
+  width: 7px;
+  height: 40px;
+  border-radius: 10px;
+  background: #fff;
+  opacity: 1;
+  transform-origin: top;
+  transform: rotate(180deg) translateX(50%);
+  margin-top: -50px;
+  margin-left: 40px;
+  box-shadow: 0 0 20px white;
+  opacity: 1;
+}
+#vovk-zombie .soundAnim.hide {
+  opacity: 0;
+}
+#vovk-zombie-area {
+  position: fixed;
+  width: 120px;
+  height: 80px;
+  background: #ccc;
+  top: 65%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -36px;
+  border-radius: 20px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 0;
+}
+
+#vovk-zombie.flip {
+  transform: scale(-1, 1) translateX(-48px);
+}
+
+.vovk-body {
+  position: absolute;
+  background-color: #111;
+  width: 40px;
+  height: 30px;
+  border-radius: 15px;
+
+  animation: walk-cycle 0.5s ease infinite;
+  /*----------*/
+}
+
+.vovk-body::after {
+  content: '';
+  position: absolute;
+  background-color: #111;
+  width: 60px;
+  height: 30px;
+  top: 0px;
+  left: -30px;
+  border-radius: 15px;
+}
+
+.vovk-body::before {
+  content: '';
+  position: absolute;
+  background-color: #111;
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  left: -35px;
+  border-radius: 20px;
+}
+
+.vovk-head {
+  position: absolute;
+  display: block;
+  background-color: #111;
+  border-radius: 15px;
+  width: 50px;
+  height: 30px;
+  margin-top: 30px;
+  margin-left: 47px;
+
+  z-index: 999;
+  animation: walk-cycle 0.5s ease infinite;
+  /*----------*/
+}
+
+.vovk-ear {
+  position: absolute;
+  display: block;
+  background-color: #111;
+  border-radius: 7px;
+  width: 14px;
+  height: 35px;
+  margin-top: 0px;
+  margin-left: 17px;
+  z-index: 998;
+  top: -20px;
+  animation: walk-cycle 0.5s ease infinite;
+  /*----------*/
+}
+
+.vovk-ear-back {
+  position: absolute;
+  display: block;
+  background-color: #222;
+  border-radius: 7px;
+  width: 14px;
+  height: 35px;
+  margin-top: 0;
+  margin-left: 36px;
+  z-index: -999;
+  top: -20px;
+  animation: walk-cycle 0.5s ease infinite;
+  /*----------*/
+}
+
+.vovk-eyes {
+  position: absolute;
+  display: block;
+  background-color: #ff2a00;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -3px;
+  margin-left: 11px;
+  z-index: 999;
+  animation: blink 2s ease infinite;
+  /*----------*/
+  border: solid 5px #111;
+}
+
+.vovk-eyes::after {
+  position: absolute;
+  display: block;
+  content: '';
+  background-color: #ff2a00;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: 17px;
+  margin-top: 0;
+  z-index: 999;
+  outline: solid 5px #111;
+
+}
+
+.vovk-body .vovk-head {
+  top: 5px;
+  margin-top: 0px;
+  margin-left: 17px;
+}
+
+.vovk-body .vovk-head::after {
+  content: '';
+  position: absolute;
+  background-color: #111;
+  width: 40px;
+  height: 20px;
+  top: 10px;
+  left: 25px;
+  border-radius: 15px;
+  z-index: 999999;
+}
+
+.vovk-leg {
+  position: absolute;
+  display: block;
+  background-color: #111;
+  border-radius: 5px;
+  width: 10px;
+  height: 35px;
+  margin-top: 15px;
+}
+
+.vovk-leg.one {
+  margin-left: -30px;
+  animation: stepOne-vovk 1s ease infinite;
+  /*----------*/
+}
+
+.vovk-leg.two {
+  margin-left: -15px;
+  animation: stepTwo-vovk 1s ease infinite;
+  /*----------*/
+}
+
+.vovk-leg.three {
+  margin-left: 10px;
+  animation: stepOne-vovk 1s ease infinite;
+  /*----------*/
+}
+
+.vovk-leg.four {
+  margin-left: 25px;
+  z-index: -99;
+  animation: stepTwo-vovk 1s ease infinite;
+  /*----------*/
+}
+
+@keyframes stepOne-vovk {
+  0% {
+    height: 35px;
+    margin-top: 15px;
+    transform: translateY(0px);
+  }
+
+  25% {
+    height: 35px;
+    margin-top: 15px;
+    transform: translateY(-23px);
+  }
+
+  50% {
+    height: 35px;
+    margin-top: 15px;
+    transform: translateY(0px);
+  }
+
+  75% {
+    height: 47px;
+    margin-top: 0;
+  }
+
+  100% {
+    height: 35px;
+    margin-top: 15px;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes stepTwo-vovk {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(-23px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/*////////////////*/
+/*// background //*/
+/*////////////////*/
+#background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  max-width: 850px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tree {
+  position: absolute;
+  bottom: 35%;
+  left: 10%;
+  background: #333;
+  width: 5.5%;
+  height: 100%;
+}
+
+.tree:nth-child(2) {
+  left: 22%;
+}
+
+.tree:nth-child(3) {
+  left: 45%;
+}
+
+.tree:nth-child(4) {
+  left: 66%;
+}
+
+.tree:nth-child(5) {
+  left: 86%;
+}
+
+.tree-thin {
+  position: absolute;
+  bottom: 35%;
+  left: 3%;
+  background: #333;
+  width: 2%;
+  height: 100%;
+}
+
+.tree-thin:nth-child(7) {
+  left: 17%;
+}
+
+.tree-thin:nth-child(8) {
+  left: 35%;
+}
+
+.tree-thin:nth-child(9) {
+  left: 55%;
+}
+
+.tree-thin:nth-child(10) {
+  left: 79%;
+}
+
+.tree-thin:nth-child(11) {
+  left: 95%;
+}
+
+.branches {
+  position: absolute;
+  background: #333;
+  width: 5px;
+  height: 100px;
+  transform: rotate(30deg);
+  border-radius: 2.5px;
+}
+
+.branches.first {
+  bottom: 79%;
+  left: 54%;
+  transform: rotate(-18deg) scaleY(1);
+}
+
+.branches.second {
+  bottom: 62%;
+  left: 58%;
+  transform: rotate(20deg) scaleY(1);
+}
+
+/* bold */
+.branches.third {
+  bottom: 66%;
+  left: 28%;
+  transform: rotate(25deg) scale(2, 1);
+}
+
+/* bold */
+.branches.fourth {
+  bottom: 75%;
+  left: 85%;
+  transform: rotate(-25deg) scale(2, 0.7);
+}
+
+/* bold */
+.branches.fifth {
+  bottom: 45%;
+  left: 9%;
+  transform: rotate(-25deg) scale(2, 0.5);
+}
+
+.branches.sixth {
+  bottom: 74%;
+  left: 5%;
+  transform: rotate(13deg) scaleY(1);
+}
+
+.branches.seventh {
+  bottom: 50%;
+  left: 77.9%;
+  transform: rotate(-13deg) scaleY(1);
+}
+
+.moon {
+  position: absolute;
+  background: #fff;
+  width: 350px;
+  height: 350px;
+  bottom: 75%;
+  left: 70%;
+  border-radius: 50%;
+  z-index: -3;
+  /* let it shine */
+  box-shadow: 0 0 20px white;
+}
+#moon-area {
+  position: absolute;
+  background: #fff;
+  width: 350px;
+  height: 350px;
+  bottom: 75%;
+  left: 70%;
+  border-radius: 50%;
+  z-index: 99;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+
+.sky {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 35%, rgba(200, 200, 210, 0.9));
+  z-index: -2;
+}
+
+.edges-fog {
+  z-index: 98;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to right, #333, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, #333);
+}
+
+.edges-plane-right {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  background: #333;
+  transform: translateX(425px);
+}
+.edges-plane-left {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  right: 50%;
+  background: #333;
+  transform: translateX(-425px);
+}
+
+/*////////////////*/
+/*//// medved ////*/
+/*////////////////*/
+#medved-zombie {
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  margin-top: -74px;
+  z-index: 0;
+  opacity: 1;
+  transform: scale(-1, 1) translateX(190px);
+}
+#medved-zombie .soundAnim.show {
+  position: absolute;
+  width: 7px;
+  height: 40px;
+  border-radius: 10px;
+  background: #fff;
+  opacity: 1;
+  transform-origin: top;
+  transform: rotate(180deg) translateX(50%);
+  margin-top: -59px;
+  margin-left: 20px;
+  box-shadow: 0 0 20px white;
+  opacity: 1;
+}
+#medved-zombie .soundAnim.hide {
+  opacity: 0;
+}
+#medved-zombie-area {
+  position: absolute;
+  width: 140px;
+  height: 185px;
+  background: #ccc;
+  top: -35px;
+  left: -17px;
+  border-radius: 20px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.medved-body {
+  position: absolute;
+  background-color: rgb(25, 25, 25);
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+}
+
+.medved-head {
+  position: absolute;
+  background-color: rgb(25, 25, 25);
+  width: 100px;
+  height: 120px;
+  border-radius: 15px;
+  top: -25px;
+  left: -15px;
+  animation: walk-cycle 0.5s ease-in infinite;
+  /*----------*/
+}
+.medved-eyes {
+  position: absolute;
+  display: block;
+  background-color: #111;
+  border-radius: 10px;
+  width: 45px;
+  height: 20px;
+  top: 5px;
+  left: 10px;
+  z-index: 1;
+}
+.medved-eyes::after {
+  position: absolute;
+  display: block;
+  content: '';
+  background-color: #ff2a00;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  left: 30px;
+  top: 5px;
+  z-index: 99;
+  animation: blink 2s ease infinite;
+  /*----------*/
+}
+.medved-eyes::before {
+  position: absolute;
+  display: block;
+  content: '';
+  background-color: #ff2a00;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  left: 5px;
+  top: 5px;
+  z-index: 99;
+  animation: blink 2s ease infinite;
+  /*----------*/
+}
+
+.medved-ear-right {
+  position: absolute;
+  background-color: rgb(25, 25, 25);
+  width: 25px;
+  height: 25px;
+  border-radius: 12px;
+  top: -10px;
+  right: -10px;
+}
+.medved-ear-left {
+  position: absolute;
+  background-color: rgb(25, 25, 25);
+  width: 25px;
+  height: 25px;
+  border-radius: 12px;
+  top: -10px;
+  left: -10px;
+  z-index: -1;
+}
+.medved-nose {
+  position: absolute;
+  background-color: rgb(40, 40, 40);
+  width: 50px;
+  height: 60px;
+  border-radius: 15px;
+  bottom: 10px;
+  left: 10px;
+}
+.medved-nose::after {
+  content: '';
+  position: absolute;
+  background-color: #111;
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  top: 3px;
+  left: 7px;
+}
+.medved-nose::before {
+  content: '';
+  position: absolute;
+  background-color: #111;
+  width: 4px;
+  height: 40px;
+  border-radius: 15px;
+  top: 10px;
+  left: 18px;
+  z-index: 1;
+}
+
+.medved-leg-one {
+  position: absolute;
+  background-color: rgb(20, 20, 20);
+  width: 30px;
+  height: 50px;
+  border-radius: 15px;
+  top: 100px;
+  left: 0px;
+  z-index: -1;
+}
+.medved-leg-two {
+  position: absolute;
+  background-color: rgb(20, 20, 20);
+  width: 30px;
+  height: 50px;
+  border-radius: 15px;
+  top: 100px;
+  left: 45px;
+  z-index: 1;
+}
+.medved-leg-three {
+  position: absolute;
+  background-color: rgb(20, 20, 20);
+  width: 30px;
+  height: 50px;
+  border-radius: 15px;
+  top: 100px;
+  left: 90px;
+  z-index: 1;
+}
+.medved-leg-four {
+  position: absolute;
+  background-color: rgba(30, 30, 30, 0);
+  width: 30px;
+  height: 50px;
+  border-radius: 15px;
+  top: 100px;
+  left: 40px;
+  z-index: -1;
+}
+
+.medved-shadow {
+  position: absolute;
+  display: block;
+  background-color: #111;
+  border-radius: 50%;
+  width: 150px;
+  height: 20px;
+  top: 140px;
+  left: -18px;
+  opacity: 0.35;
+  z-index: -99;
+  filter: blur(6px);
+  transform: scale(1.15, 0.75);
+}
+
+/*/////////////////*/
+/*///// mouse /////*/
+/*/////////////////*/
+#mouse-zombie {
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  z-index: 0;
+  opacity: 1;
+  transform: scale(0.75, 0.75) translateX(305px);
+}
+#mouse-zombie .soundAnim.show {
+  position: absolute;
+  width: 7px;
+  height: 40px;
+  border-radius: 10px;
+  background: #fff;
+  opacity: 1;
+  transform-origin: top;
+  transform: rotate(180deg) translateX(50%);
+  margin-top: -59px;
+  box-shadow: 0 0 20px white;
+  opacity: 1;
+}
+#mouse-zombie .soundAnim.hide {
+  opacity: 0;
+}
+#mouse-zombie-area {
+  position: absolute;
+  width: 80px;
+  height: 140px;
+  background: #ccc;
+  top: -35px;
+  left: -35px;
+  border-radius: 30px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 999;
+}
+.mouse-body {
+  position: absolute;
+  background-color: #656565;
+  width: 40px;
+  height: 80px;
+  border-radius: 15px;
+}
+
+.mouse-head {
+  position: absolute;
+  background-color: #656565;
+  width: 40px;
+  height: 60px;
+  border-radius: 15px;
+  top: -15px;
+  left: -15px;
+  z-index: 3;
+  animation: walk-cycle 0.5s ease-in infinite;
+  /*----------*/
+}
+
+.mouse-eyes {
+  position: absolute;
+  display: block;
+  background-color: #111;
+  border-radius: 10px;
+  width: 35px;
+  height: 20px;
+  top: 18px;
+  left: -5px;
+  z-index: 1;
+}
+.mouse-eyes::after {
+  position: absolute;
+  display: block;
+  content: '';
+  background-color: #ff2a00;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  left: 20px;
+  top: 5px;
+  z-index: 99;
+  animation: blink 2s ease infinite;
+  /*----------*/
+}
+.mouse-eyes::before {
+  position: absolute;
+  display: block;
+  content: '';
+  background-color: #ff2a00;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  left: 5px;
+  top: 5px;
+  z-index: 99;
+  animation: blink 2s ease infinite;
+  /*----------*/
+}
+
+.mouse-ear-right {
+  position: absolute;
+  background-color: #656565;
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  top: -10px;
+  right: -10px;
+  z-index: -1;
+}
+.mouse-ear-left {
+  position: absolute;
+  background-color: #656565;
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  top: -10px;
+  left: -10px;
+  z-index: -1;
+}
+
+.mouse-nose {
+  position: absolute;
+  background-color: #656565;
+  width: 60px;
+  height: 22px;
+  border-radius: 15px;
+  bottom: 0px;
+  right: 0;
+}
+.mouse-nose::after {
+  content: '';
+  position: absolute;
+  background-color: #111;
+  width: 10px;
+  height: 10px;
+  border-radius: 15px;
+  top: 0px;
+  left: 0px;
+}
+
+.mouse-tail {
+  position: absolute;
+  background-color: #656565;
+  width: 10px;
+  height: 40px;
+  border-radius: 15px;
+  top: 55px;
+  left: 25px;
+  z-index: 1;
+  transform: rotate(-103deg) translateY(20px);
+}
+
+.mouse-leg-one {
+  position: absolute;
+  background-color: #111;
+  width: 10px;
+  height: 30px;
+  border-radius: 15px;
+  top: 25px;
+  left: 20px;
+  z-index: 1;
+  transform: rotate(-15deg) translateY(15px);
+}
+.mouse-leg-two {
+  position: absolute;
+  background-color: #111;
+  width: 10px;
+  height: 30px;
+  border-radius: 15px;
+  top: 25px;
+  left: 0px;
+  z-index: -1;
+  transform: rotate(45deg) translateY(15px);
+}
+
+.mouse-leg-three {
+  position: absolute;
+  background-color: #111;
+  width: 10px;
+  height: 30px;
+  border-radius: 15px;
+  top: 70px;
+  left: 0px;
+  z-index: -1;
+}
+
+.mouse-leg-four {
+  position: absolute;
+  background-color: #111;
+  width: 10px;
+  height: 30px;
+  border-radius: 15px;
+  top: 70px;
+  left: 20px;
+  z-index: 1;
+}
+
+.mouse-shadow {
+  position: absolute;
+  display: block;
+  background-color: #111;
+  border-radius: 50%;
+  width: 70px;
+  height: 20px;
+  top: 88px;
+  left: -15px;
+  opacity: 0.35;
+  z-index: -99;
+  filter: blur(6px);
+  transform: scale(1.15, 0.75);
+}
+
+.hints {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: var(--smallText);
+  position: fixed;
+  top: 88%;
+  left: 50%;
+  z-index: 0;
+  opacity: 0.15;
+  transform: translateX(-50%);
+  color: white;
+}
+.hints span {
+  position: absolute;
+  width: 95px;
+  /* background: grey; */
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* .hints span::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -10px;
+  height: 45px;
+  width: 90px;
+  background: black;
+  border-radius: 50%;
+  opacity: 0.25;
+  z-index: -99;
+  filter: blur(20px);
+} */
+
+.hints span:nth-child(1) {
+  transform: translateX(-250px);
+}
+.hints span:nth-child(2) {
+  transform: translateX(-15px);
+}
+.hints span:nth-child(3) {
+  transform: translateX(175px);
+}
+.pointer-one {
+  position: absolute;
+  bottom: -32px;
+  left: -300px;
+  /* width: 82px; */
+  height: 90px;
+  transform: rotate(-10deg);
+}
+
+.pointer-two {
+  position: absolute;
+  bottom: -28px;
+  left: 265px;
+  /* width: 82px; */
+  height: 90px;
+  transform: rotate(-7deg) scale(-1, 1);
+}
+
+.pointer-three {
+  position: absolute;
+  bottom: -21px;
+  left: -62px;
+  /* width: 82px; */
+  height: 90px;
+  transform: rotate(5deg) scale(1, 1.2);
+}
+
+/* ///////////////////////////// */
+/* ///////////  Menu   ///////// */
+/* ///////////////////////////// */
+
+#start-menu {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  color: #111;
+  
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s ease;
+  transition-delay: 0.2s;
+}
+
+#start-menu.closed {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease;
+  /* transition-delay: 0.2s; */
+}
+
+#menu-background {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 850px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  z-index: -1;
+  transition: opacity 3s ease;
+  transition-delay: 0.4s;
+}
+#start-menu.closed #menu-background {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.0s ease;
+  /* transition-delay: 0.2s; */
+}
+#menu-background .sky{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to top, white, white 35%, #ddd);
+  z-index: -2;
+}
+#menu-background .tree, #menu-background .tree-thin, #menu-background .branches {
+  background: white;
+}
+
+/* /// toggle circle grow /// */
+.toggle-circle {
+  position: absolute;
+  background: #fff;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  
+  width: 200%;
+  height: 200%;
+  border-radius: 0;
+  opacity: 1;
+  transition: all 0.4s ease;
+
+  z-index: 2;
+}
+
+/* closing of the start menu */
+.toggle-circle.closed {
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.4s ease, opacity 1s ease;
+  transition-delay: 0s, 1s;
+  z-index: 99;
+}
+
+.toggle-circle.closed:hover{
+  opacity: 1;
+  width: 520px;
+  height: 520px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+/* menu icon for toggle start menu */
+.toggle-circle::before, .toggle-circle::after {
+  position: absolute;
+  content: '';
+  border-radius: 5px;
+  background: #111;
+  top: 50%;
+  left: 50%;
+  transform: translate(-130px, 70px);
+
+  width: 100px;
+  height: 14px;
+  opacity: 0;
+  transition: all 0.3s ease, opacity 0.3s ease;
+  transition-delay: 0s, 0s;
+}
+
+/* /// menu icon corner at click /// */
+.toggle-circle.opened::before {
+  animation: menu-icon-corner-click-animation-top 0.2s ease;
+}
+.toggle-circle.opened::after {
+  animation: menu-icon-corner-click-animation-bottom 0.2s ease;
+}
+@keyframes menu-icon-corner-click-animation-top {
+  0% {
+    opacity: 1;
+    margin-top: -15px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -45px;
+  }
+}
+@keyframes menu-icon-corner-click-animation-bottom {
+  0% {
+    opacity: 1;
+    margin-top: 15px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: 45px;
+  }
+}
+
+/* /// corner circle menu icon - visible and animated /// */
+.toggle-circle.closed::before {
+  /* width: 100px;
+  height: 14px; */
+  animation: menu-icon-line-top-animation 0.5s ease infinite;
+  margin-top: -15px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  transition-delay: 0.3s;
+}
+.toggle-circle.closed::after {
+  /* width: 100px;
+  height: 14px; */
+  animation: menu-icon-line-bottom-animation 0.5s ease infinite;
+  margin-top: 15px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  transition-delay: 0.3s;
+}
+
+@keyframes menu-icon-line-top-animation {
+  0% {
+    margin-top: -30px;
+  }
+
+  50% {
+    margin-top: -15px;
+  }
+
+  100% {
+    margin-top: -30px;
+  }
+}
+@keyframes menu-icon-line-bottom-animation {
+  0% {
+    margin-top: 30px;
+  }
+
+  50% {
+    margin-top: 15px;
+  }
+
+  100% {
+    margin-top: 30px;
+  }
+}
+
+
+.project-title {
+  position: relative;
+  max-width: 800px;
+  margin: 180px auto 75px;
+  text-align: center;
+  letter-spacing: 7px;
+}
+#start-menu .project-title h1 {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.8s ease;
+  transition-delay: 0.2s;
+}
+#start-menu.closed .project-title h1 {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+#start-menu .project-title span {
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.8s ease;
+  transition-delay: 0.4s;
+}
+#start-menu.closed .project-title span{
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(5px);
+}
+
+.project-title h1 {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 72px;
+  margin-bottom: 5px;
+}
+
+.project-title span {
+  letter-spacing: 2px;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  background: #ff2a00;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 20px;
+}
+
+.hints-start {
+  font-family: Helvetica, sans-serif;
+  font-size: var(--smallText);
+  color: #111;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+
+  opacity: 1;
+  transition: opacity 1s ease;
+  transition-delay: 0.5s;
+}
+#start-menu.closed .hints-start {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.0s ease;
+}
+.hints-start span {
+  display: inline-block;
+  padding: 5px;
+  opacity: 0.4;
+  transform: rotate(0deg);
+  cursor: pointer;
+}
+.pointer-start {
+  height: 90px;
+  transform: rotate(-2deg) scale(-1.2, 1.2);
+  opacity: 0.4;
+  margin-bottom: -5px;
+}
+
+.music-box {
+  text-align: center;
+  bottom: 25%;
+  color: #111;
+  width: 100%;
+  font-size: 40px;
+  opacity: 1;
+  transition: opacity 1s ease;
+  transition-delay: 0.5s;
+}
+#start-menu.closed .music-box {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.0s ease;
+}
+.music-box li {
+  display: inline-block;
+  font-family: 'Patrick Hand', cursive;
+  letter-spacing: 3px;
+  margin: 5px;
+  padding: 9px 28px;
+  border-radius: 23px;
+  background: #111;
+  color: white;
+  transition: box-shadow 0.15s ease;
+  cursor: pointer;
+}
+.music-box li:hover:nth-child(1) {
+  box-shadow: 0 0 0 3px #111;
+  transition: all 0.15s ease;
+  animation: walk-cycle 0.5s ease-in-out infinite;
+}
+
+.music-box li.locked {
+  border: 1px solid #ccc;
+  color: #ccc;
+  border-radius: 15px;
+  cursor: default;
+  box-shadow: 0 0 0 0px #111;
+  background: none;
+  filter: blur(2px);
+}
+
+.how-to-play {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 10px;
+  color: white;
+  opacity: 0.15;
+  font-family: Helvetica, sans-serif;
+  font-size: var(--smallText);
+}
+
+
+/* #game, #background, .edges-plane-left, .edges-plane-right {
+  visibility: hidden;
+} */
